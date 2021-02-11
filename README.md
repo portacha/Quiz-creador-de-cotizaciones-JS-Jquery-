@@ -8,22 +8,4 @@ Las preguntas inician con una pregunta inicial de clasificacion que esta fuera d
 Despues filtra las preguntas tomando el topic inicial.
 Si el topic tiene el signo de "%" (porcent) entonces aumenta o reduce el acumulado porcentualmente.
 
-[
-    {
-        topic: "general%",  //Agrupa y define si el aumento es porcentual o por $$.
-        pregunta: "Que alcance tiene tu marca actualmente?",
-        objRespuesta: [
-            {
-                respuesta: "Local",
-                precio: "50"
-            },
-            {
-                respuesta: "estatal",
-                precio: "100"
-            },
-            {
-                respuesta: "Nacional",
-                precio: "200"
-            }
-        ]
-    },...
+
