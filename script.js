@@ -4,7 +4,7 @@ var valorMostrado = 0;
 var topic;
 var valorPorcent = 0;
 var topicFiltrado = ["general"];
-var f = 0
+var f = 0;
 //Aqui guardamos un registro de Las preguntas y selecciones
 var tablaResultados = `
 <h4> ${$('#preguntas').html()}</h4>
@@ -22,14 +22,16 @@ function interactividad() {
         $("#contador").toggleClass("contadorPlay");
         $("#contador").toggleClass("contadorPlay2");
         respuestaSeleccionada = $(this).html();
+        topic = $(this).data('topic');
         if (valorPorcent == 0 || valorPorcent == undefined) {
             valorSeleccionado = ($(this).data("precio"));
             // console.log("El valor es nulo o 0");
         } else {
             valorSeleccionado = ($(this).data("precio"));
+            
             valorSeleccionado = (valorSeleccionado / 100) * valorPorcent;
         }
-        topic = $(this).data("topic");
+        
         var topicFind = topic.match("%");
         if (topicFind === null) {
             // console.log("es dineros");
@@ -117,7 +119,7 @@ $("#butSig").click(function () {
 
     //Agregamos El topic inicial Solo se ejecuta una vez.
 
-    if (f == 1) {
+    if (f == 0) {
         if (topicFiltrado.lastIndexOf(topic.replace("%", "")) < 0) {
             topicFiltrado.push(topic);
             console.log("Se agregaron Topics");
@@ -198,8 +200,8 @@ function actualizarTxt(pA) {
     for (var i = 0; i <= (pr[pA].objRespuesta.length - 1); i++) {
         htmlTemp += `<li> 
      <input type="radio" id="f-option${i}" name="selector" required="">
-     <label class="respuesta" for='f-option${i}' 
-data-precio="${pr[pA].objRespuesta[i].precio}" data-topic="${pr[pA].topic}"> ${pr[pA].objRespuesta[i].respuesta}</label>
+     <label class="respuesta"  for='f-option${i}' 
+data-precio="${pr[pA].objRespuesta[i].precio}" data-topic="${(pr[pA].objRespuesta[i].topic ? pr[pA].objRespuesta[i].topic : pr[pA].topic)}"> ${pr[pA].objRespuesta[i].respuesta}</label>
      <div class="check"></div>
    </li>` ;
     }

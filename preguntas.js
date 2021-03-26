@@ -5,15 +5,18 @@ const pr = [
         objRespuesta: [
             {
                 respuesta: "Marketing (administración de redes sociales y publicidad online)",
-                precio: "0"
+                precio: "0",
+                topic: "marketing"
             },
             {
                 respuesta: "Imagen (Logos, Videos,banners, etc)",
-                precio: "0"
+                precio: "0",
+                topic: "imagen"
             },
             {
                 respuesta: "Creacion de Redes Sociales o Sitio web",
-                precio: "0"
+                precio: "0",
+                topic: "web"
             }
         ]
     },
