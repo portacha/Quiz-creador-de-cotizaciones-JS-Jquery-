@@ -4,6 +4,7 @@ var valorMostrado = 0;
 var topic;
 var valorPorcent = 0;
 var topicFiltrado = ["general"];
+var f = 0
 //Aqui guardamos un registro de Las preguntas y selecciones
 var tablaResultados = `
 <h4> ${$('#preguntas').html()}</h4>
@@ -66,7 +67,9 @@ function interactividad() {
 
 //Esta funcion hace el aumento permanente.
 function aumento() {
+    if (f > 0){
     var topicFind = topic.match("%");
+    }
     tablaResultados += `<p>Respuesta: ${respuestaSeleccionada}</p>`
 
     if (topicFind === null) {
@@ -90,6 +93,24 @@ function aumento() {
 
 //Aqui van las preguntas y sus resouestas. si alguna de las preguntas tiene en topic el signo de % esto aumentara el precio o disminuira como porcentaje.
 var pr = [
+    {
+        topic: "general%",
+        pregunta: "¿Con que producto o servicio estas pensando comenzar tu digitalización?",
+        objRespuesta: [
+            {
+                respuesta: "Marketing (administración de redes sociales y publicidad online)",
+                precio: "0"
+            },
+            {
+                respuesta: "Imagen (Logos, Videos,banners, etc)",
+                precio: "0"
+            },
+            {
+                respuesta: "Creacion de Redes Sociales o Sitio web",
+                precio: "0"
+            }
+        ]
+    },
     {
         topic: "general%",
         pregunta: "Que alcance tiene tu marca actualmente?",
@@ -278,14 +299,17 @@ var respuestaSelect = 0;
 
 
 //Funcion de click en siguiente
-var f = 0
+
+
+aumento();
+aumentoPregunta();
 
 $("#butSig").click(function () {
 
 
     //Agregamos El topic inicial Solo se ejecuta una vez.
 
-    if (f == 0) {
+    if (f == 1) {
         if (topicFiltrado.lastIndexOf(topic.replace("%", "")) < 0) {
             topicFiltrado.push(topic);
             console.log("Se agregaron Topics");
